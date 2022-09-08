@@ -1,0 +1,7 @@
+project: linked-list-allocator
+target: chaos
+
+cmds:
+  - cmd: /chaos
+  - cmd: /chaos_no_inst @@
+    libfuzzer: false
