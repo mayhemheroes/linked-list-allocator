@@ -1,5 +1,7 @@
 # Unreleased
 
+# 0.10.6 – 2026-04-14
+
 - Fix potential panic due to huge layout ([#79](https://github.com/rust-osdev/linked-list-allocator/pull/79))
 - Fix `alloc_ref` build on recent nightly by using renamed `NonNull::dangling` ([#90](https://github.com/rust-osdev/linked-list-allocator/pull/90))
 
