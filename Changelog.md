@@ -1,5 +1,15 @@
 # Unreleased
 
+- Fix potential panic due to huge layout ([#79](https://github.com/rust-osdev/linked-list-allocator/pull/79))
+- Fix `alloc_ref` build on recent nightly by using renamed `NonNull::dangling` ([#90](https://github.com/rust-osdev/linked-list-allocator/pull/90))
+
+## Internal
+
+- Fix warnings about `cfg(fuzzing)` ([#82](https://github.com/rust-osdev/linked-list-allocator/pull/82))
+- Remove stabilized miri flags and feature ([#81](https://github.com/rust-osdev/linked-list-allocator/pull/81))
+- Remove potential undefined behavior in fuzz chaos harness ([#80](https://github.com/rust-osdev/linked-list-allocator/pull/80))
+- Upgrade plain-HTTP links to HTTPS in Cargo.toml ([#78](https://github.com/rust-osdev/linked-list-allocator/pull/78))
+
 # 0.10.5 – 2023-03-04
 
 - Remove features `const_mut_refs` and `use_spin_nightly`.
