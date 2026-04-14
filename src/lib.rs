@@ -267,7 +267,7 @@ impl Heap {
 unsafe impl Allocator for LockedHeap {
     fn allocate(&self, layout: Layout) -> Result<NonNull<[u8]>, AllocError> {
         if layout.size() == 0 {
-            return Ok(NonNull::slice_from_raw_parts(layout.dangling(), 0));
+            return Ok(NonNull::slice_from_raw_parts(layout.dangling_ptr(), 0));
         }
         match self.0.lock().allocate_first_fit(layout) {
             Ok(ptr) => Ok(NonNull::slice_from_raw_parts(ptr, layout.size())),

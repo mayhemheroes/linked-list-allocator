@@ -138,7 +138,7 @@ jobs:
       MIRIFLAGS: "-Zmiri-disable-isolation -Zmiri-strict-provenance"
     steps:
     - uses: actions/checkout@v1
-    - run: rustup toolchain install nightly --profile minimal --component rust-src miri
+    - run: rustup toolchain install nightly --profile minimal --component rust-src --component miri
     - run: cargo +nightly miri test --all-features
 
   check_formatting:
