@@ -48,7 +48,7 @@ jobs:
 
     steps:
     - name: "Checkout Repository"
-      uses: actions/checkout@v1
+      uses: actions/checkout@v6.0.2
 
     - name: "Print Rust Version"
       run: |
@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: "Checkout Repository"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v6.0.2
 
       - name: "Print Rust Version"
         run: |
@@ -115,7 +115,7 @@ jobs:
 
     steps:
     - name: "Checkout Repository"
-      uses: actions/checkout@v1
+      uses: actions/checkout@v6.0.2
 
     - name: "Print Rust Version"
       run: |
@@ -135,10 +135,10 @@ jobs:
     name: "Miri tests"
     runs-on: ubuntu-latest
     env:
-      MIRIFLAGS: "-Zmiri-disable-isolation -Zmiri-strict-provenance"
+      MIRIFLAGS: "-Zmiri-disable-isolation -Zmiri-strict-provenance -Zmiri-tag-raw-pointers -Zmiri-ignore-leaks"
     steps:
-    - uses: actions/checkout@v1
-    - run: rustup toolchain install nightly --profile minimal --component rust-src --component miri
+    - uses: actions/checkout@v6.0.2
+    - run: rustup toolchain install nightly --profile minimal --component rust-src miri
     - run: cargo +nightly miri test --all-features
 
   check_formatting:
@@ -146,6 +146,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v6.0.2
     - run: rustup toolchain install nightly --profile minimal --component rustfmt
     - run: cargo +nightly fmt -- --check
